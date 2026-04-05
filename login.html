@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Attendance EXIM System - Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      display: flex; justify-content: center; align-items: center;
+      height: 100vh; margin: 0;
+    }
+    .login-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      padding: 30px; border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      width: 320px; color: #ecf0f1;
+      animation: fadeIn 0.8s ease;
+    }
+    h2 { text-align: center; margin-bottom: 20px; font-size: 22px; font-weight: bold; color: #3498db; }
+    input {
+      width: 100%; padding: 12px; margin-bottom: 15px;
+      border: none; border-radius: 8px; font-size: 15px;
+      outline: none; background: rgba(255,255,255,0.9); color: #2c3e50;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%; padding: 12px;
+      background: #3498db; color: white; border: none;
+      border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px;
+      transition: 0.3s;
+    }
+    button:hover { background: #2980b9; transform: scale(1.05); }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+    .popup {
+      position: fixed; top: 20px; right: 20px;
+      background: #323232; color: #fff;
+      padding: 12px 20px; border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      font-size: 14px; opacity: 0; transform: translateY(-20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      z-index: 9999; display: flex; align-items: center; gap: 8px;
+    }
+    .popup.show { opacity: 1; transform: translateY(0); }
+    .popup.success { background: #4CAF50; }
+    .popup.error { background: #F44336; }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2><i class="fa-solid fa-user-lock"></i> เข้าสู่ระบบ</h2>
+    <input type="text" id="username" placeholder="กรอกชื่อผู้ใช้">
+    <input type="password" id="password" placeholder="กรอกรหัสผ่าน">
+    <button onclick="login()"><i class="fa-solid fa-right-to-bracket"></i> เข้าสู่ระบบ</button>
+  </div>
+
+  <div id="popupBox" class="popup"><i id="popupIcon" class="fa-solid"></i><span id="popupMessage"></span></div>
+
+  <script>
+    async function login() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!username || !password) {
+        showPopup("error", "กรุณากรอกชื่อผู้ใช้และรหัสผ่าน");
+        return;
+      }
+
+      try {
+        const res = await fetch("/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password })
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("role", data.role);
+          localStorage.setItem("user", username);
+
+          showPopup("success", "เข้าสู่ระบบสำเร็จ");
+
+          setTimeout(() => {
+            if (data.role === "G5") {
+              window.location.href = "admin.html";
+            } else {
+              window.location.href = "index.html";
+            }
+          }, 1000);
+        } else {
+          showPopup("error", data.error || "Login failed!");
+        }
+      } catch (err) {
+        showPopup("error", "Server error: " + err.message);
+      }
+    }
+
+    function showPopup(type, message) {
+      const popup = document.getElementById("popupBox");
+      const icon = document.getElementById("popupIcon");
+      const msg = document.getElementById("popupMessage");
+
+      popup.className = `popup show ${type}`;
+      msg.innerText = message;
+
+      if (type === "success") icon.className = "fa-solid fa-check-circle";
+      else if (type === "error") icon.className = "fa-solid fa-times-circle";
+      else icon.className = "fa-solid fa-info-circle";
+
+      setTimeout(() => popup.className = "popup", 2500);
+    }
+  </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Check In / Leave Request</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h2 { color: #333; }
+
+    .form-section {
+      display: flex;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .form-box {
+      flex: 1;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px;
+      background: #f9f9f9;
+    }
+
+    .form-box h3 {
+      margin-top: 0;
+      color: #1976D2;
+    }
+
+    .form-box label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .form-box input,
+    .form-box select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .form-box button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 15px;
+      background: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .form-box button:hover {
+      background: #1976D2;
+    }
+  </style>
+</head>
+<body>
+  <h2>Attendance Management</h2>
+
+  <div class="form-section">
+    <!-- Manual Check In/Out -->
+    <div class="form-box">
+      <h3>Manual Check In/Out</h3>
+      <label>Date:</label>
+      <input type="date" id="manualDate">
+      <label>Check-in Time:</label>
+      <input type="time" id="manualCheckin" value="08:00">
+      <label>Check-out Time:</label>
+      <input type="time" id="manualCheckout" value="17:00">
+      <button onclick="submitManual()">Submit</button>
+    </div>
+
+    <!-- Leave Request -->
+    <div class="form-box">
+      <h3>Leave Request</h3>
+      <label>Leave Type:</label>
+      <select id="leaveType">
+        <option value="Annual Leave">Annual Leave</option>
+        <option value="Sick Leave">Sick Leave</option>
+        <option value="Private Leave">Private Leave</option>
+      </select>
+      <label>Start Date:</label>
+      <input type="date" id="leaveStart">
+      <label>End Date:</label>
+      <input type="date" id="leaveEnd">
+      <button onclick="submitLeaveRequest()">Submit Leave</button>
+    </div>
+  </div>
+
+  <script>
+    // ฟังก์ชันส่งข้อมูลไปยัง server
+    async function submitAttendance(record) {
+      try {
+        await fetch("http://localhost:3000/api/attendance", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(record)
+        });
+        alert("บันทึกสำเร็จ!");
+      } catch (err) {
+        console.error("Error:", err);
+        alert("เกิดข้อผิดพลาดในการบันทึก");
+      }
+    }
+
+    // Manual Check In/Out
+    function submitManual() {
+      const name = localStorage.getItem("user") || "Unknown";
+      const date = document.getElementById("manualDate").value;
+      const checkin = document.getElementById("manualCheckin").value;
+      const checkout = document.getElementById("manualCheckout").value;
+
+      const record = {
+        name,
+        date,
+        checkin,
+        checkout,
+        distance: "-",
+        mode: "Manual",
+        leaveType: "-"
+      };
+
+      submitAttendance(record);
+    }
+
+    // Leave Request
+    function submitLeaveRequest() {
+      const name = localStorage.getItem("user") || "Unknown";
+      const startDate = document.getElementById("leaveStart").value;
+      const endDate = document.getElementById("leaveEnd").value;
+      const leaveType = document.getElementById("leaveType").value;
+
+      const record = {
+        name,
+        date: startDate,   // ใช้ startDate เป็นหลัก
+        checkin: "-",
+        checkout: "-",
+        distance: "-",
+        mode: "Leave",
+        leaveType
+      };
+
+      submitAttendance(record);
+    }
+  </script>
+</body>
+</html>
+

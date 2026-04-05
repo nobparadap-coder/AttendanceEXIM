@@ -1,0 +1,57 @@
+{
+  "name": "attendanceexim",
+  "version": "1.0.0",
+  "description": "AttendanceEXIM System - Web, Mobile (PWA), Desktop (Electron)",
+  "main": "main.js",
+  "scripts": {
+    "server": "node server.js",
+    "start": "electron .",
+    "dev": "concurrently \"npm run server\" \"npm start\"",
+    "build:desktop": "electron-builder",
+    "build:mobile": "echo 'ใช้ PWA manifest.json + service worker สำหรับ iOS/Android'"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.0",
+    "exceljs": "^4.4.0",
+    "express": "^5.2.1",
+    "mongoose": "^9.4.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "^29.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.attendanceexim.app",
+    "productName": "AttendanceEXIM",
+    "files": [
+      "server.js",
+      "main.js",
+      "preload.js",
+      "index.html",
+      "report.html",
+      "admin.html",
+      "manifest.json",
+      "service-worker.js",
+      "icons/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "icons/icon-512.png"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "icons/icon-512.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "icons/icon-512.png"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
