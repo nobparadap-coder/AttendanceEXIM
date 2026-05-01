@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "AttendanceEXIM System - Web, Mobile (PWA), Desktop (Electron)",
   "main": "main.js",
+  
   "scripts": {
     "server": "node server.js",
     "start": "electron .",
