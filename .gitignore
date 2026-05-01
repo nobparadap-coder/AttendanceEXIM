@@ -1,0 +1,31 @@
+# Node.js dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Logs
+*.log
+logs/
+server.log
+history.log
+
+# Environment variables
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Backup / temp files
+*.bak
+*.tmp
+
+# Postman collections cache
+.postman/
+postman/
+
+# Ignore data if not needed in production
+data/*.json
+!data/employees.json   # ถ้าต้องการเก็บ sample data ไว้
+
