@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Attendance EXIM System - Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body { font-family:'Segoe UI',Arial,sans-serif; margin:0; padding:0; background:#f5f7fa; }
+    header { background:#1976D2; color:white; padding:10px; font-size:16px; font-weight:bold;
+             display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+    .container { max-width:1000px; margin:15px auto; padding:15px; }
+  </style>
+</head>
+<body>
+  <header>
+    Attendance EXIM System – Welcome <span id="welcome"></span>
+    <button onclick="logout()">Logout</button>
+  </header>
+
+  <div class="container">
+    <h2>Dashboard</h2>
+    <p>ยินดีต้อนรับสู่ระบบ Attendance EXIM</p>
+    <div id="adminMenu" style="display:none;">
+      <a href="admin.html">ไปที่ Admin Control Panel</a>
+    </div>
+  </div>
+
+  <script>
+    window.onload = () => {
+      const user = localStorage.getItem("user");
+      const role = localStorage.getItem("role");
+
+      // ถ้าไม่ได้ login → กลับไปหน้า login
+      if (!user || !role) {
+        alert("กรุณาเข้าสู่ระบบก่อน");
+        window.location.href = "login.html";
+        return;
+      }
+
+      // แสดงชื่อผู้ใช้และ role
+      document.getElementById("welcome").innerText = `${user} (${role})`;
+
+      // ถ้า role เป็น G5 → แสดงเมนู Admin
+      if (role === "G5") {
+        document.getElementById("adminMenu").style.display = "block";
+      }
+    };
+
+    function logout() {
+      localStorage.clear();
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Attendance EXIM System - Index</title>
+  <!-- โหลด Font Awesome สำหรับไอคอน -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- โหลด style.css จากโฟลเดอร์ public -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="checkLogin()">
+  <header>
+    Attendance EXIM System – Welcome <span id="welcome"></span>
+    <button class="btn btn-red btn-small" onclick="logout()">
+      <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </button>
+  </header>
+
+  <div class="container">
+    <!-- GPS Check In/Out -->
+    <div class="card">
+      <h3><i class="fa-solid fa-location-dot"></i> GPS Check In/Out</h3>
+      <div class="btn-group-wide">
+        <button class="btn btn-green btn-wide" onclick="checkInGPS()">CHECK IN</button>
+        <button class="btn btn-red btn-wide" onclick="checkOutGPS()">CHECK OUT</button>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Manual Check In/Out -->
+    <div class="card">
+      <h3><i class="fa-solid fa-pen-to-square"></i> Manual Check In/Out</h3>
+      <div class="form-row">
+        <div class="form-col">
+          <label>In:</label>
+          <div style="display:flex; gap:10px;">
+            <input type="date" id="manualDateIn">
+            <input type="time" id="manualTimeIn" value="08:00">
+          </div>
+        </div>
+        <div class="form-col">
+          <label>Out:</label>
+          <div style="display:flex; gap:10px;">
+            <input type="date" id="manualDateOut">
+            <input type="time" id="manualTimeOut" value="17:00">
+          </div>
+        </div>
+        <div class="button-col">
+          <button class="btn btn-blue btn-wide" onclick="submitManual()">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Leave Request -->
+    <div class="card">
+      <h3><i class="fa-solid fa-plane-departure"></i> Leave Request</h3>
+      <div class="form-row">
+        <div class="form-col">
+          <label>Type & Reason:</label>
+          <select id="leaveType" style="margin-bottom:8px;">
+            <option value="Annual Leave">Annual Leave</option>
+            <option value="Private Leave">Private Leave</option>
+            <option value="Sick Leave">Sick Leave</option>
+            <option value="Other Leave">Other Leave</option>
+          </select>
+          <textarea id="leaveReason" placeholder="เหตุผลการลา..."></textarea>
+        </div>
+
+        <div class="form-col">
+          <label>Period:</label>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <div style="flex:1; min-width:180px;">
+              <input type="date" id="leaveStartDate">
+            </div>
+            <div style="flex:1; min-width:180px;">
+              <input type="date" id="leaveEndDate">
+            </div>
+          </div>
+
+          <label>Duration:</label>
+          <select id="leaveDuration">
+            <option value="full">Full Day (08:00 - 17:00)</option>
+            <option value="morning">Half Day Morning (08:00 - 12:00)</option>
+            <option value="afternoon">Half Day Afternoon (13:00 - 17:00)</option>
+          </select>
+        </div>
+
+        <div class="button-col">
+          <button class="btn btn-blue btn-wide" onclick="submitLeave()">Submit Leave</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Report -->
+    <div class="card">
+      <h3><i class="fa-solid fa-file-excel"></i> Report</h3>
+      <div class="btn-group-wide">
+        <button class="btn btn-blue btn-wide" onclick="window.location.href='report.html'">Report</button>
+        <button class="btn btn-green btn-wide" onclick="exportExcel()">Export to Excel</button>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Admin -->
+    <div class="card" id="adminMenu" style="display:none;">
+      <h3><i class="fa-solid fa-user-shield"></i> Admin Controls</h3>
+      <div class="btn-group-wide">
+        <button class="btn btn-orange btn-wide" onclick="goAdmin()">ไปหน้า Admin</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- เชื่อมต่อ script.js ภายนอก -->
+  <script src="script.js"></script>
+</body>
+</html>
+

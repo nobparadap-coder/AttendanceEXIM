@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Attendance EXIM System - Report</title>
+  <!-- โหลด Font Awesome สำหรับไอคอน -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- โหลด Chart.js สำหรับกราฟ -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- โหลด style.css จากโฟลเดอร์ public -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="checkLogin(); loadEmployees();">
+
+  <!-- Header -->
+  <header>
+    Attendance EXIM System – Report <span id="welcome"></span>
+    <div>
+      <button class="btn btn-blue btn-small" onclick="goIndex()">
+        <i class="fa-solid fa-home"></i> Index
+      </button>
+      <button class="btn btn-red btn-small" onclick="logout()">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2><i class="fa-solid fa-file-alt"></i> รายงานการเข้าออกงาน (Monthly Attendance Report)</h2>
+
+    <!-- Filters -->
+    <div class="card">
+      <label>Employee:</label>
+      <select id="filterEmployee"><option value="all">-- All Employees --</option></select>
+
+      <label>Month:</label>
+      <input type="month" id="filterMonth" value="2026-04">
+
+      <label>Mode:</label>
+      <select id="filterMode">
+        <option value="all">All</option>
+        <option value="GPS">GPS</option>
+        <option value="Manual">Manual (Admin)</option>
+        <option value="Leave">Leave</option>
+      </select>
+
+      <label>Leave Type:</label>
+      <select id="filterLeaveType">
+        <option value="all">All</option>
+        <option value="Annual Leave">Annual Leave</option>
+        <option value="Private Leave">Private Leave</option>
+        <option value="Sick Leave">Sick Leave</option>
+        <option value="Other Leave">Other Leave</option>
+      </select>
+
+      <button class="btn btn-blue" onclick="loadReport()">
+        <i class="fa-solid fa-filter"></i> Filter Report
+      </button>
+      <button class="btn btn-green" onclick="loadHrAttendance()">
+        <i class="fa-solid fa-user-shield"></i> HR Attendance
+      </button>
+    </div>
+
+    <!-- Summary -->
+    <div class="card">
+      <div class="summary-box" id="summaryBox"></div>
+    </div>
+
+    <!-- Table -->
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th><th>Date</th><th>Check-in</th><th>Check-out</th>
+            <th>Distance (m)</th><th>Mode</th><th>Leave (Type & Reason)</th>
+            <th>Duration</th><th>Recorded By</th>
+          </tr>
+        </thead>
+        <tbody id="reportTable"></tbody>
+      </table>
+    </div>
+
+    <!-- Chart -->
+    <div class="card">
+      <h2><i class="fa-solid fa-chart-pie"></i> กราฟสัดส่วนประเภทการลา</h2>
+      <canvas id="leaveChart" width="600" height="300"></canvas>
+    </div>
+
+    <!-- HR Attendance -->
+    <div class="card">
+      <h2><i class="fa-solid fa-user-shield"></i> HR Attendance Table</h2>
+      <table id="hrAttendance">
+        <thead><tr></tr></thead>
+        <tbody id="hrAttendanceBody"></tbody>
+      </table>
+    </div>
+
+    <!-- Actions -->
+    <div class="report-actions">
+      <button class="btn btn-green" onclick="exportExcel()">
+        <i class="fa-solid fa-file-excel"></i> Export to Excel
+      </button>
+      <button class="btn btn-orange" onclick="exportHrReport()">
+        <i class="fa-solid fa-user-shield"></i> Export HR Report
+      </button>
+    </div>
+  </div>
+
+  <!-- ใช้ script.js ภายนอก -->
+  <script src="script.js"></script>
+</body>
+</html>
+

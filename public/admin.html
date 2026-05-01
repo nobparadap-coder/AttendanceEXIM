@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Attendance EXIM System - Admin</title>
+  <!-- โหลด Font Awesome สำหรับไอคอน -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- โหลด style.css จากโฟลเดอร์ public -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="checkLogin()">
+
+  <!-- Header -->
+  <header>
+    Attendance EXIM System – Admin <span id="welcome"></span>
+    <div>
+      <button class="btn btn-blue btn-small" onclick="goIndex()">
+        <i class="fa-solid fa-home"></i> Index
+      </button>
+      <button class="btn btn-red btn-small" onclick="logout()">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2><i class="fa-solid fa-user-shield"></i> Admin Controls</h2>
+
+    <!-- Employee Management -->
+    <div class="card">
+      <h3><i class="fa-solid fa-users"></i> เพิ่มพนักงานใหม่</h3>
+      <div class="form-row">
+        <div class="form-col">
+          <label>ชื่อพนักงาน:</label>
+          <input type="text" id="empName">
+        </div>
+        <div class="form-col">
+          <label>Role:</label>
+          <select id="empRole">
+            <option value="G4">G4 (Employee)</option>
+            <option value="G5">G5 (Admin)</option>
+          </select>
+        </div>
+        <div class="form-col">
+          <button class="btn btn-green" onclick="addEmployee()">เพิ่มพนักงาน</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Actions -->
+    <div class="card">
+      <h3><i class="fa-solid fa-database"></i> จัดการข้อมูลระบบ</h3>
+      <div class="btn-group">
+        <button class="btn btn-red" onclick="resetData()">
+          <i class="fa-solid fa-trash"></i> Reset Data
+        </button>
+        <button class="btn btn-blue" onclick="backupData()">
+          <i class="fa-solid fa-download"></i> Backup Data
+        </button>
+        <button class="btn btn-orange" onclick="document.getElementById('restoreFile').click()">
+          <i class="fa-solid fa-upload"></i> Restore Data
+        </button>
+        <input type="file" id="restoreFile" style="display:none;" onchange="restoreData(this.files[0])">
+      </div>
+    </div>
+  </div>
+
+  <!-- ใช้ script.js ภายนอก -->
+  <script src="script.js"></script>
+</body>
+</html>
+
+

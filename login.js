@@ -19,8 +19,11 @@
       width: 320px; color: #ecf0f1;
       animation: fadeIn 0.8s ease;
     }
-    h2 { text-align: center; margin-bottom: 20px; font-size: 22px; font-weight: bold; color: #3498db; }
-    input {
+    h2 {
+      text-align: center; margin-bottom: 20px;
+      font-size: 22px; font-weight: bold; color: #3498db;
+    }
+    input, select {
       width: 100%; padding: 12px; margin-bottom: 15px;
       border: none; border-radius: 8px; font-size: 15px;
       outline: none; background: rgba(255,255,255,0.9); color: #2c3e50;
@@ -53,51 +56,39 @@
   <div class="login-box">
     <h2><i class="fa-solid fa-user-lock"></i> เข้าสู่ระบบ</h2>
     <input type="text" id="username" placeholder="กรอกชื่อผู้ใช้">
-    <input type="password" id="password" placeholder="กรอกรหัสผ่าน">
+    <select id="role">
+      <option value="">-- เลือกสิทธิ์การใช้งาน --</option>
+      <option value="G4">G4</option>
+      <option value="G5">G5</option>
+    </select>
     <button onclick="login()"><i class="fa-solid fa-right-to-bracket"></i> เข้าสู่ระบบ</button>
   </div>
 
   <div id="popupBox" class="popup"><i id="popupIcon" class="fa-solid"></i><span id="popupMessage"></span></div>
 
   <script>
-    async function login() {
+    function login() {
       const username = document.getElementById("username").value.trim();
-      const password = document.getElementById("password").value.trim();
+      const role = document.getElementById("role").value;
 
-      if (!username || !password) {
-        showPopup("error", "กรุณากรอกชื่อผู้ใช้และรหัสผ่าน");
+      if (!username || !role) {
+        showPopup("error", "กรุณากรอกชื่อผู้ใช้และเลือกสิทธิ์การใช้งาน");
         return;
       }
 
-      try {
-        const res = await fetch("/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ username, password })
-        });
+      // เก็บข้อมูลลง localStorage
+      localStorage.setItem("user", username);
+      localStorage.setItem("role", role);
 
-        const data = await res.json();
+      // ตรวจสอบว่าค่าเซ็ตจริง
+      console.log("User:", localStorage.getItem("user"));
+      console.log("Role:", localStorage.getItem("role"));
 
-        if (data.success) {
-          localStorage.setItem("token", data.token);
-          localStorage.setItem("role", data.role);
-          localStorage.setItem("user", username);
+      showPopup("success", "เข้าสู่ระบบสำเร็จ");
 
-          showPopup("success", "เข้าสู่ระบบสำเร็จ");
-
-          setTimeout(() => {
-            if (data.role === "G5") {
-              window.location.href = "admin.html";
-            } else {
-              window.location.href = "index.html";
-            }
-          }, 1000);
-        } else {
-          showPopup("error", data.error || "Login failed!");
-        }
-      } catch (err) {
-        showPopup("error", "Server error: " + err.message);
-      }
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1000);
     }
 
     function showPopup(type, message) {
@@ -117,6 +108,4 @@
   </script>
 </body>
 </html>
-
-
 

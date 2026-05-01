@@ -1,55 +1,160 @@
-[
-  {
-    "_id": "66100a1234567890abcdef01",
-    "name": "Pattanan",
-    "date": "2026-04-05",
-    "checkin": "09:00",
-    "checkout": "18:00",
-    "distance": "50",
-    "mode": "GPS",
-    "leaveType": "-",
-    "createdAt": "2026-04-05T02:00:00.000Z",
-    "updatedAt": "2026-04-05T02:00:00.000Z",
-    "__v": 0
-  },
-  {
-    "_id": "66100a1234567890abcdef02",
-    "name": "Somchai",
-    "date": "2026-04-05",
-    "checkin": "08:30",
-    "checkout": "17:30",
-    "distance": "100",
-    "mode": "Manual",
-    "leaveType": "-",
-    "createdAt": "2026-04-05T02:10:00.000Z",
-    "updatedAt": "2026-04-05T02:10:00.000Z",
-    "__v": 0
-  },
-  {
-    "_id": "66100a1234567890abcdef03",
-    "name": "Suda",
-    "date": "2026-04-06",
-    "checkin": "-",
-    "checkout": "-",
-    "distance": "-",
-    "mode": "Leave",
-    "leaveType": "Annual Leave",
-    "createdAt": "2026-04-06T01:00:00.000Z",
-    "updatedAt": "2026-04-06T01:00:00.000Z",
-    "__v": 0
-  },
-  {
-    "_id": "66100a1234567890abcdef04",
-    "name": "Anan",
-    "date": "2026-04-07",
-    "checkin": "09:15",
-    "checkout": "17:45",
-    "distance": "75",
-    "mode": "GPS",
-    "leaveType": "-",
-    "createdAt": "2026-04-07T02:00:00.000Z",
-    "updatedAt": "2026-04-07T02:00:00.000Z",
-    "__v": 0
-  }
-]
-
+{
+  "timestamp": "2026-04-28T17:04:00.030Z",
+  "records": [
+    {
+      "_id": "69ee44f7968e8c575c19d2d2",
+      "name": "สมชาย ใจดี",
+      "date": "2026-04-01",
+      "checkin": "08:30",
+      "checkout": "17:30",
+      "distance": "120",
+      "mode": "GPS",
+      "leaveType": "-",
+      "leaveReason": "-",
+      "__v": 0
+    },
+    {
+      "_id": "69ee44f7968e8c575c19d2d3",
+      "name": "สุดา สายใจ",
+      "date": "2026-04-02",
+      "checkin": "09:00",
+      "checkout": "18:00",
+      "distance": "95",
+      "mode": "Manual",
+      "leaveType": "-",
+      "leaveReason": "-",
+      "__v": 0
+    },
+    {
+      "_id": "69ee44f7968e8c575c19d2d4",
+      "name": "อนันต์ มั่นคง",
+      "date": "2026-04-03",
+      "checkin": "-",
+      "checkout": "-",
+      "distance": "-",
+      "mode": "Leave",
+      "leaveType": "Sick Leave",
+      "leaveReason": "ไข้หวัดใหญ่",
+      "__v": 0
+    },
+    {
+      "_id": "69f0d967f248ba5272232cf8",
+      "name": "Pattanan",
+      "date": "2026-04-28",
+      "checkin": "10:59:35 PM",
+      "distance": "0",
+      "mode": "GPS",
+      "__v": 0
+    },
+    {
+      "_id": "69f0d97bf248ba5272232cf9",
+      "name": "Pattanan",
+      "date": "2026-04-28",
+      "checkin": "10:59:55 PM",
+      "distance": "0",
+      "mode": "GPS",
+      "__v": 0
+    },
+    {
+      "_id": "69f0d985f248ba5272232cfa",
+      "name": "Pattanan",
+      "date": "2026-04-28",
+      "checkin": "08:00",
+      "checkout": "17:00",
+      "mode": "Manual",
+      "__v": 0
+    },
+    {
+      "_id": "69f0d989f248ba5272232cfb",
+      "name": "Pattanan",
+      "date": "2026-04-28",
+      "checkin": "08:00",
+      "checkout": "17:00",
+      "mode": "Manual",
+      "__v": 0
+    },
+    {
+      "_id": "69f0d9a2f248ba5272232cfc",
+      "name": "Pattanan",
+      "date": "2026-04-17",
+      "checkout": "2026-04-17",
+      "mode": "Leave",
+      "leaveType": "Sick Leave",
+      "leaveReason": "-",
+      "__v": 0
+    },
+    {
+      "_id": "69f0d9a4f248ba5272232cfd",
+      "name": "Pattanan",
+      "date": "2026-04-17",
+      "checkout": "2026-04-17",
+      "mode": "Leave",
+      "leaveType": "Sick Leave",
+      "leaveReason": "-",
+      "__v": 0
+    },
+    {
+      "_id": "69f0e333e1650b0ff9835091",
+      "name": "Pattanan",
+      "date": "2026-04-28",
+      "checkin": "11:41:23 PM",
+      "distance": "0",
+      "mode": "GPS",
+      "__v": 0
+    },
+    {
+      "_id": "69f0e335e1650b0ff9835092",
+      "name": "Pattanan",
+      "date": "2026-04-28",
+      "checkout": "11:41:25 PM",
+      "distance": "0",
+      "mode": "GPS",
+      "__v": 0
+    },
+    {
+      "_id": "69f0e344e1650b0ff9835093",
+      "name": "Pattanan",
+      "date": "2026-04-28",
+      "checkin": "08:00",
+      "checkout": "17:00",
+      "mode": "Manual",
+      "__v": 0
+    },
+    {
+      "_id": "69f0e34de1650b0ff9835094",
+      "name": "Pattanan",
+      "date": "2026-04-15",
+      "checkout": "2026-04-15",
+      "mode": "Leave",
+      "leaveType": "Private Leave",
+      "leaveReason": "-",
+      "__v": 0
+    }
+  ],
+  "employees": [
+    {
+      "_id": "69ee44f7968e8c575c19d2cf",
+      "name": "สมชาย ใจดี",
+      "role": "G4",
+      "__v": 0
+    },
+    {
+      "_id": "69ee44f7968e8c575c19d2d0",
+      "name": "สุดา สายใจ",
+      "role": "G4",
+      "__v": 0
+    },
+    {
+      "_id": "69ee44f7968e8c575c19d2d1",
+      "name": "อนันต์ มั่นคง",
+      "role": "G5",
+      "__v": 0
+    },
+    {
+      "_id": "69f0d7bef248ba5272232cf7",
+      "name": "ทดสอบ",
+      "role": "G1",
+      "__v": 0
+    }
+  ]
+}

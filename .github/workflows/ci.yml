@@ -13,10 +13,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+<<<<<<< HEAD
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+=======
+- name: Setup Node.js
+  uses: actions/setup-node@v3
+  with:
+    node-version: '18'
+
+>>>>>>> afcdcf230560bb928f7067966a562c3453c04bab
 
       - name: Install dependencies
         run: npm install

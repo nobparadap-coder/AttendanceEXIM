@@ -27,5 +27,6 @@ postman/
 
 # Ignore data if not needed in production
 data/*.json
-!data/employees.json   # ถ้าต้องการเก็บ sample data ไว้
+!data/employees.json   # whitelist ไฟล์ sample ที่จำเป็น
+
 
