@@ -30,3 +30,7 @@ data/*.json
 !data/employees.json   # whitelist ไฟล์ sample ที่จำเป็น
 
 
+dist/
+*.exe
+*.dmg
+*.AppImage
