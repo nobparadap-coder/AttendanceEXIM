@@ -1,0 +1,82 @@
+2026-04-28 22:47:35 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\Pattanan\node_modules\node-windows\lib\wrapper.js --file C:\Users\Pattanan\AttendanceEXIM\server.js --scriptoptions= --log "AttendanceEXIM Server wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2026-04-28 22:47:35 - Started 8880
+2026-04-28 23:05:38 - Stopping attendanceeximserver.exe
+2026-04-28 23:05:38 - ProcessKill 8880
+2026-04-28 23:05:38 - Found child process: 980 Name: conhost.exe
+2026-04-28 23:05:38 - Found child process: 17332 Name: node.exe
+2026-04-28 23:05:38 - Stopping process 980
+2026-04-28 23:05:38 - Send SIGINT 980
+2026-04-28 23:05:38 - SIGINT to 980 failed - Killing as fallback
+2026-04-28 23:05:38 - Stopping process 17332
+2026-04-28 23:05:38 - Send SIGINT 17332
+2026-04-28 23:05:38 - SIGINT to 17332 failed - Killing as fallback
+2026-04-28 23:05:38 - Stopping process 8880
+2026-04-28 23:05:38 - Send SIGINT 8880
+2026-04-28 23:05:38 - SIGINT to 8880 failed - Killing as fallback
+2026-04-28 23:05:38 - Finished attendanceeximserver.exe
+2026-04-29 00:13:31 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\Pattanan\node_modules\node-windows\lib\wrapper.js --file C:\Users\Pattanan\AttendanceEXIM\server.js --scriptoptions= --log "AttendanceEXIM Server wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2026-04-29 00:13:31 - Started 7784
+2026-04-29 00:14:21 - Stopping attendanceeximserver.exe
+2026-04-29 00:14:21 - ProcessKill 7784
+2026-04-29 00:14:21 - Shutdown exception
+Message:Class not registered
+
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2026-04-29 00:14:52 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\Pattanan\node_modules\node-windows\lib\wrapper.js --file C:\Users\Pattanan\AttendanceEXIM\server.js --scriptoptions= --log "AttendanceEXIM Server wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2026-04-29 00:14:52 - Started 6940
+2026-04-29 00:15:08 - Stopping attendanceeximserver.exe
+2026-04-29 00:15:08 - ProcessKill 6940
+2026-04-29 00:15:09 - Shutdown exception
+Message:Class not registered
+
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2026-04-29 00:15:37 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\Pattanan\node_modules\node-windows\lib\wrapper.js --file C:\Users\Pattanan\AttendanceEXIM\server.js --scriptoptions= --log "AttendanceEXIM Server wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2026-04-29 00:15:37 - Started 6952
+2026-04-29 00:15:54 - Stopping attendanceeximserver.exe
+2026-04-29 00:15:54 - ProcessKill 6952
+2026-04-29 00:15:54 - Shutdown exception
+Message:Class not registered
+
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2026-04-29 20:58:58 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\Pattanan\node_modules\node-windows\lib\wrapper.js --file C:\Users\Pattanan\AttendanceEXIM\server.js --scriptoptions= --log "AttendanceEXIM Server wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2026-04-29 20:59:01 - Started 11980
+2026-04-29 21:43:59 - Stopping attendanceeximserver.exe
+2026-04-29 21:43:59 - ProcessKill 11980
+2026-04-29 21:43:59 - Found child process: 12016 Name: conhost.exe
+2026-04-29 21:43:59 - Found child process: 11944 Name: node.exe
+2026-04-29 21:43:59 - Stopping process 12016
+2026-04-29 21:43:59 - Send SIGINT 12016
+2026-04-29 21:43:59 - SIGINT to 12016 failed - Killing as fallback
+2026-04-29 21:44:00 - Stopping process 11944
+2026-04-29 21:44:00 - Send SIGINT 11944
+2026-04-29 21:44:00 - SIGINT to 11944 failed - Killing as fallback
+2026-04-29 21:44:00 - Stopping process 11980
+2026-04-29 21:44:00 - Send SIGINT 11980
+2026-04-29 21:44:00 - SIGINT to 11980 failed - Killing as fallback
+2026-04-29 21:44:00 - Finished attendanceeximserver.exe
+2026-04-29 21:44:03 - Starting C:\Program Files\nodejs\node.exe  --harmony --max_old_space_size=4096 C:\Users\Pattanan\node_modules\node-windows\lib\wrapper.js --file C:\Users\Pattanan\AttendanceEXIM\server.js --scriptoptions= --log "AttendanceEXIM Server wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2026-04-29 21:44:03 - Started 22672

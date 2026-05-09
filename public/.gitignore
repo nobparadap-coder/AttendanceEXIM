@@ -1,0 +1,10 @@
+# Ignore build outputs
+dist/
+dist/win-unpacked/
+*.exe
+
+# Logs
+*.log
+
+# Environment files
+.env
