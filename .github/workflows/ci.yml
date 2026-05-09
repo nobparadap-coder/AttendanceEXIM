@@ -19,16 +19,16 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: AttendanceEXIM
+        working-directory: .
 
       - name: Build Web (dist)
         run: npm run build
-        working-directory: AttendanceEXIM
+        working-directory: .
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0.0
         with:
-          publish-dir: AttendanceEXIM/dist
+          publish-dir: ./dist
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
@@ -47,15 +47,15 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: AttendanceEXIM
+        working-directory: .
 
       - name: Build Electron Desktop App
         run: npm run build:desktop
-        working-directory: AttendanceEXIM
+        working-directory: .
 
       - name: Upload Desktop Build Artifact
         uses: actions/upload-artifact@v3
         with:
           name: AttendanceEXIM-Desktop
-          path: AttendanceEXIM/dist/*
+          path: dist/*
 
