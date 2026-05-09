@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "AttendanceEXIM System - Web, Mobile (PWA), Desktop (Electron)",
   "main": "main.js",
-  
   "scripts": {
     "server": "node server.js",
     "start": "electron .",
     "dev": "concurrently \"npm run server\" \"npm start\"",
+    "build:web": "mkdir -p dist && cp -r index.html report.html admin.html manifest.json service-worker.js icons dist/",
     "build:desktop": "electron-builder",
-    "build:mobile": "echo 'ใช้ PWA manifest.json + service worker สำหรับ iOS/Android'"
+    "build:mobile": "echo 'ใช้ PWA manifest.json + service worker สำหรับ iOS/Android'",
+    "build": "npm run build:web"
   },
   "dependencies": {
     "body-parser": "^2.2.2",
@@ -56,3 +57,4 @@
   "license": "ISC",
   "type": "commonjs"
 }
+
