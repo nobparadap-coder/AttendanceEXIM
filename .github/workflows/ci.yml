@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: AttendanceEXIM CI/CD
 
 on:
   push:
@@ -6,9 +6,8 @@ on:
       - main
 
 jobs:
-  build:
+  web-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -21,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build project
+      - name: Build Web (dist)
         run: npm run build
 
       - name: Deploy to Netlify
@@ -32,4 +31,28 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
+
+  desktop-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Electron Desktop App
+        run: npm run build:desktop
+
+      - name: Upload Desktop Build Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: AttendanceEXIM-Desktop
+          path: dist/*
+
 
