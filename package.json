@@ -7,7 +7,7 @@
     "server": "node server.js",
     "start": "electron .",
     "dev": "concurrently \"npm run server\" \"npm start\"",
-    "build:web": "mkdir -p dist && cp -r index.html report.html admin.html manifest.json service-worker.js icons dist/",
+    "build:web": "mkdir -p dist && cp -r checkin.html dashboard.html service-worker.js icons dist/",
     "build:desktop": "electron-builder",
     "build:mobile": "echo 'ใช้ PWA manifest.json + service worker สำหรับ iOS/Android'",
     "build": "npm run build:web"
@@ -32,24 +32,22 @@
       "server.js",
       "main.js",
       "preload.js",
-      "index.html",
-      "report.html",
-      "admin.html",
-      "manifest.json",
+      "checkin.html",
+      "dashboard.html",
       "service-worker.js",
       "icons/*"
     ],
     "win": {
       "target": "nsis",
-      "icon": "icons/icon-512.png"
+      "icon": "icons/icon.ico"
     },
     "mac": {
       "target": "dmg",
-      "icon": "icons/icon-512.png"
+      "icon": "icons/icon.png"
     },
     "linux": {
       "target": "AppImage",
-      "icon": "icons/icon-512.png"
+      "icon": "icons/icon.png"
     }
   },
   "keywords": [],
